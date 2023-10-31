@@ -1,0 +1,20 @@
+{% extends "template.html" %}
+<body>
+  {% block content %}
+  <div class="container mx-auto">
+    <h1 class="text-4xl font-bold text-center my-8">Text Tools!</h1>
+    <p class="text-lg text-gray-700 text-center mb-4">
+      These tools can generate a story and summarize a news story!
+    </p>
+    <div class="mt-6 flex items-center">
+    <button
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      onclick="window.location.href='/generator'"
+    >
+      Try it out!
+    </button>
+    </div>
+  </div>
+  {% endblock %}
+</body>
+</html>

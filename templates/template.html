@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Text Tools</title>
+  </head>
+  <body>
+    <header class="bg-gray-800 py-6">
+      <div class="container mx-auto flex justify-between items-center px-4">
+        <h1 class="text-white font-bold text-xl">Stock Price Predictor</h1>
+        <nav>
+          <ul class="menu flex">
+            <li>
+              <a
+                href="{{ url_for('index') }}"
+                class="text-gray-300 hover:text-white px-3 py-2 rounded"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="{{ url_for('generator') }}"
+                class="text-gray-300 hover:text-white px-3 py-2 rounded"
+                >Generator</a
+              >
+            </li>
+            <li>
+              <a
+                href="{{ url_for('summarizer') }}"
+                class="text-gray-300 hover:text-white px-3 py-2 rounded"
+                >Summarizer</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    {% block content %} {% endblock %}
+  </body>
+</html>
