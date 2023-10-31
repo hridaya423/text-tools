@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap5
-from backend import generator, summarizer
+import pandas as pd
+from backend import project
 
 from flask_wtf import FlaskForm, CSRFProtect
 from wtforms import StringField, SubmitField
@@ -48,13 +49,16 @@ def summarizer():
 @app.route('/generator-results', methods=['POST'])
 def text_generator():
     text = request.form['name']
-    generated_text = generator.select(text, text=text)
+    df = pd.DataFrame({'text': [text]})
+    generated_text = project.models.get('cohere_text_generation').predict(df)['next_text'][0]
+    print(generated_text)
     return render_template('text.html', text=generated_text)
 
 @app.route('/summarizer-results', methods=['POST'])
 def text_summarizer():
     text = request.form['name']
-    summarized_text = summarizer.select(text, text=text)
+    df = pd.DataFrame({'text': [text]})
+    summarized_text = project.models.get('cohere_text_summarization').predict(df)['next_text'][0]
     return render_template('text.html', text=summarized_text)
 
 
