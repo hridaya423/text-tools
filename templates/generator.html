@@ -7,7 +7,7 @@
       <p class="text-lg text-gray-700 mb-4 text-center">
         Give a bit of text, and this tool will generate a story for you!
       </p>
-      <form action="/generator-results" method="post">
+      <form action="/generator-results" method="POST">
         {{ form.hidden_tag() }}
       {{ form.csrf_token }}
             <div class="max-w-md mx-auto mt-8">
@@ -22,7 +22,6 @@
   </div>
 </form>
       <p class="text-lg text-center mt-8"><strong>{{ message }}</strong></p>
-      <p class="text-lg text-center mt-8"><strong>The generated text is {{ text }}</strong></p>
 
     </div>
     {% endblock %}
